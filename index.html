@@ -11,7 +11,19 @@
   <body>
 <script>
   // Отправляет событие инициализации нативному клиенту
-  vkBridge.send('VKWebAppInit');
+  vkBridge.send('VKWebAppInit').then((data) => { 
+    if (data.result) {
+      // Приложение инициализировано
+      console.log('Приложение инициализировано');
+    } else {
+      // Ошибка
+      console.log('Приложение не инициализировано');
+    }
+  })
+  .catch((error) => {
+    // Ошибка
+    console.log(error);
+  });
 </script>
     <div id="unity-container" style="position: absolute;max-width: 100%;height: 100%;top: 0;right: 0;bottom: 0;left: 0;margin: auto;">
       <canvas id="unity-canvas" style="position: absolute; max-width: 100%; height: 100%; cursor: default; width: 100%;"></canvas>

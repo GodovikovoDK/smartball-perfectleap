@@ -34,6 +34,21 @@
     // Ошибка
     console.log(error);
   });
+
+      vkBridge.send('VKWebAppShowBannerAd', {
+  banner_location: 'bottom'
+  })
+ .then((data) => { 
+    if (data.result) {
+      // Баннерная реклама отобразилась
+      console.log('Баннерная реклама отобразилась!');
+    }
+  })
+  .catch((error) => {
+    // Ошибка
+    console.log('Баннерная реклама не отобразилась!');
+    console.log(error);
+  });
     </script>
    <script>
       var container = document.querySelector("#unity-container");

@@ -9,6 +9,10 @@
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
   </head>
   <body>
+    <script>
+  // Отправляет событие инициализации нативному клиенту
+  vkBridge.send('VKWebAppInit');
+</script>
     <div id="unity-container" style="position: absolute;max-width: 100%;height: 100%;top: 0;right: 0;bottom: 0;left: 0;margin: auto;">
       <canvas id="unity-canvas" style="position: absolute; max-width: 100%; height: 100%; cursor: default; width: 100%;"></canvas>
       <div id="unity-loading-bar">
@@ -22,11 +26,14 @@
 
 <script>
   bridge.send('VKWebAppShowBannerAd', {
-  banner_location: 'bottom'
+  banner_location: 'bottom',
+  banner_width: 100,
+  banner_height: 64,
+  layout_type: 'overlay'
   })
  .then((data) => { 
     if (data.result) {
-      console.log("Успех!");
+      console.log('Успех!');
       // Баннерная реклама отобразилась
     }
   })

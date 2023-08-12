@@ -49,6 +49,28 @@
     console.log('Баннерная реклама не отобразилась!');
     console.log(error);
   });
+
+      // Проверяем, добавлена ли игра на главный экран
+vkBridge.send('VKWebAppAddToHomeScreenInfo')
+  .then( (data) => {
+    if (! data.is_added_to_home_screen) {    // Если не добавлена,
+      bridge.send('VKWebAppAddToHomeScreen') //  то добавляем
+        .then( (data) => {
+          if (data.result) {
+            // Игра добавлена.
+            console.log('Игра успешно добавлена!');
+          } else {
+            // Игра уже добавлена
+            console.log('Игра уже была добавлена!');
+          }
+        })
+        .catch( (e) => {
+          // Пользователь отклонил запрос или 
+          // произошла ошибка
+        })    
+     }
+   })
+   .catch( (e) => { console.log('Ошибка', e); });
     </script>
    <script>
       var container = document.querySelector("#unity-container");

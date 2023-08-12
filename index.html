@@ -71,6 +71,17 @@ vkBridge.send('VKWebAppAddToHomeScreenInfo')
      }
    })
    .catch( (e) => { console.log('Ошибка', e); });
+
+    vkBridge.send('VKWebAppAddToFavorites')
+  .then((data) => { 
+    if (data.result) {
+      // Игра добавлена в левое меню...
+      console.log('Игра успешно добавлена в левое меню!');
+    }
+  })
+  .catch ((error) => {
+    console.log(error); // Ошибка...
+  });
     </script>
    <script>
       var container = document.querySelector("#unity-container");

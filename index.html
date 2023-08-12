@@ -25,10 +25,7 @@
 
 <script>
   bridge.send('VKWebAppShowBannerAd', {
-  banner_location: 'bottom',
-  banner_width: 100,
-  banner_height: 64,
-  layout_type: 'overlay'
+  banner_location: 'top'
   })
  .then((data) => { 
     if (data.result) {

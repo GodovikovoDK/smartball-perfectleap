@@ -22,24 +22,6 @@
       </div>
       <div id="unity-warning"> </div>
     </div>
-<script>
-bridge.send('VKWebAppShowBannerAd', {
-  banner_location: 'top',
-  layout_type: 'resize',
-  banner_width: 100,
-  banner_height: 64
-  })
- .then((data) => { 
-    if (data.result) {
-      // Баннерная реклама отобразилась
-      result = true;
-    }
-  })
-  .catch((error) => {
-    // Ошибка
-    console.log(error);
-  });
-    </script>
    <script>
       var container = document.querySelector("#unity-container");
       var canvas = document.querySelector("#unity-canvas");

@@ -23,22 +23,21 @@
       <div id="unity-warning"> </div>
     </div>
 
-<script>
-  bridge.send('VKWebAppShowBannerAd', {
-  banner_location: 'top'
+bridge.send('VKWebAppShowBannerAd', {
+  banner_location: 'top',
+  layout_type: 'resize',
+  banner_width: 100,
+  banner_height: 64
   })
  .then((data) => { 
     if (data.result) {
-      console.log('Успех!');
       // Баннерная реклама отобразилась
     }
   })
   .catch((error) => {
     // Ошибка
     console.log(error);
-    console.log('Успех!');
   });
-</script>
     
    <script>
       var container = document.querySelector("#unity-container");

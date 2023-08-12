@@ -32,6 +32,7 @@ bridge.send('VKWebAppShowBannerAd', {
  .then((data) => { 
     if (data.result) {
       // Баннерная реклама отобразилась
+      return true;
     }
   })
   .catch((error) => {

@@ -93,7 +93,7 @@ callMethodSendInvite();
 
 		 function ShareFromUnityToJs ()
 {
-console.log('Нажата кнопка для приглашения друга в игру!');
+console.log('Нажата кнопка для создания записи на стене!');
 callMethodWallPost();
 }
 
@@ -123,7 +123,8 @@ vkBridge.send('VKWebAppShowInviteBox', {
 		          function callMethodWallPost() // вызываем метод ВК
          {
             vkBridge.send('VKWebAppShowWallPostBox', {
-              message: 'Первая запись на стене!'
+              message: 'Я играю в Smart Ball: Perfect Leap, присоединяйся и ты!',
+		attachment: 'https://vk.com/app51717962_570312098'
               })
               .then((data) => {
                 if (data.post_id) {

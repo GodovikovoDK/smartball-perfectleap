@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
 	 <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   </head>
   <body>
     <div id="unity-container" style="position: absolute;max-width: 100%;height: 100%;top: 0;right: 0;bottom: 0;left: 0;margin: auto;">
@@ -83,6 +84,11 @@ vkBridge.send('VKWebAppAddToHomeScreenInfo')
   .catch ((error) => {
     console.log(error); // Ошибка...
   });
+
+		 function FromUnityToJs ()
+{
+alert ("Very good!");
+}
     </script>
 	
     <script>

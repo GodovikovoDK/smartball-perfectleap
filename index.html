@@ -91,6 +91,12 @@ console.log('Нажата кнопка для приглашения друга 
 callMethodSendInvite();
 }
 
+		 function ShareFromUnityToJs ()
+{
+console.log('Нажата кнопка для приглашения друга в игру!');
+callMethodWallPost();
+}
+
 		       function callMethodSendInvite() // вызываем метод ВК
       {
 vkBridge.send('VKWebAppShowInviteBox', { 
@@ -113,6 +119,24 @@ vkBridge.send('VKWebAppShowInviteBox', {
   });
 
       }
+
+		          function callMethodWallPost() // вызываем метод ВК
+         {
+            vkBridge.send('VKWebAppShowWallPostBox', {
+              message: 'Первая запись на стене!'
+              })
+              .then((data) => {
+                if (data.post_id) {
+                  // Запись размещена
+                  console.log ("ok");
+                }
+              })
+              .catch((error) => {
+                // Ошибка
+                console.log(error);
+              });
+
+         }
     </script>
 	
     <script>

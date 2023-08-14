@@ -88,16 +88,21 @@ vkBridge.send('VKWebAppAddToHomeScreenInfo')
 function FromUnityToJs ()
 {
 console.log('Нажата кнопка для приглашения друга в игру!');
-	vkBridge.send('VKWebAppShowInviteBox', { 
+callMethodSendInvite();
+}
+
+		       function callMethodSendInvite() // вызываем метод ВК
+      {
+vkBridge.send('VKWebAppShowInviteBox', { 
+  requestKey: 'key-12345' /* Необязательный параметр. Ключ приглашения. */
   })
   .then( (data) => {
     if (data.success) {
       // Приглашение выслано ...
       // ...
-      console.log('Приглашение выслано!');
+      
       // Эти пользователи не получили сообщение
       // console.log('Приглашение не было отослано', data.notSentIds );
-	    console.log('Приглашение не было отослано', data.notSentIds );
     }
   })
   .catch( (e) => { 
@@ -105,10 +110,10 @@ console.log('Нажата кнопка для приглашения друга 
     if( error_code == 4 && error_reason == 'User denied') {
       // Пользователь нажал «Отмена» в диалоге
       ...
-	    console.log('Пользователь нажал «Отмена» в диалоге!');
     }  
   });
-}
+
+      }
     </script>
 	
     <script>
